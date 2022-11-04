@@ -1,25 +1,9 @@
-import './App.css';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
 
-
-
-
-function App() {
-  const navigate = useNavigate()
-
-  const handleClick = () => {
-    console.log(`handle Click in App Called`)
-    navigate('/s1')
-
-  }
-
-
+const App = () => {
   return (
-    <div className="App">
-      <h2> Welcome to my schedule an appointment app</h2>
-      <button type='button' className='btn btn-primary' onClick={() => handleClick()}>enter</button>
-    </div>
-  );
+    <div>My first blog app</div>
+  )
 }
 
-export default App;
+export default App
