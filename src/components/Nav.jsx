@@ -1,15 +1,24 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { connect} from 'react-redux'
 
-const Nav = () => {
+const Nav = props => {
+const [count, setCount] = useState(0);
+
+console.log(`show Nav Props ${props}`);
+const {get} = props;
+useEffect (()=>{
+setCount((get))
+}, [get])
     return (
-        <div>
-            <nav className="navbar navbar-light" style={{backgroundColor: "#e3f2fd"}}>
-            <ul className="navbar justify-content-end">
-                <li className='navbar-item'>Cart : {}</li>
-            </ul>
-</nav>
+        <div style={{backgroundColor: 'yellow'}}>
+          <span style={{textAlign:"end"}}><h1>Cart:{count}</h1></span>
         </div>
     )
 }
-
-export default Nav
+const mapStateToProps = state => {
+  console.log(`map state to props ${state}`)
+  return  {
+    get : state.product.value
+  }
+}
+export default connect(mapStateToProps)(Nav);
